@@ -1,4 +1,4 @@
-# Internal Candidate Notes & Job Documents (Do Not Upload)
+# Internal Candidate Notes & Private Study Documents (Do Not Upload)
 interview_study_guide.md
 pen_and_paper_plan.md
 walkthrough.md
@@ -6,6 +6,10 @@ task.md
 implementation_plan.md
 Job Description*.pdf
 ABC_Retail_Analysis.py
+ABC_Retail_*_Guide.docx
+ABC_Retail_*_Walkthrough.docx
+ABC_Retail_*_Plan.docx
+create_docx_guides.py
 
 # Temporary & Cache Files
 __pycache__/

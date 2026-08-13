@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "analysis_date": "2026-08-13 12:58",
+    "period": "Jan 2020 - Dec 2022",
+    "n": 36,
+    "geography": "Bay Area district, California, US",
+    "target_audience": "Age 12-45 years",
+    "method": "Marketing Mix Model \u2014 Grid-searched Adstock + Log-saturation + Regional/National Macro"
+  },
+  "adstock_decay_rates": {
+    "digital": 0.1,
+    "radio": 0.3,
+    "tv": 0.9
+  },
+  "grid_search": {
+    "combinations_tested": 900,
+    "best_aic": 369.7
+  },
+  "model": {
+    "r2": 0.8954,
+    "adj_r2": 0.8336,
+    "loocv_r2": 0.6973,
+    "aic": 369.7,
+    "bic": 391.8
+  },
+  "diagnostics": {
+    "durbin_watson": 3.071,
+    "bp_pval": 0.3142,
+    "bg_pval": 0.0001
+  },
+  "channels": [
+    {
+      "channel": "Digital",
+      "coefficient": 97.21512068311691,
+      "p_value": 1.9520782339677392e-09,
+      "ci_lo": 65.46799917924828,
+      "ci_hi": 128.96224218698552,
+      "std_coef": 0.814801854353401,
+      "total_spend_M": 2633.0499999999997,
+      "marginal_roi": 1.3205096863274626,
+      "spend_share": 86.81828231691074,
+      "significant": true
+    },
+    {
+      "channel": "Radio",
+      "coefficient": 83.10954461098561,
+      "p_value": 1.0718033146412557e-05,
+      "ci_lo": 46.10683373195778,
+      "ci_hi": 120.11225549001344,
+      "std_coef": 0.5725972408599288,
+      "total_spend_M": 399.15,
+      "marginal_roi": 7.067111924625075,
+      "spend_share": 13.16097961937484,
+      "significant": true
+    },
+    {
+      "channel": "TV",
+      "coefficient": -954.0951480502755,
+      "p_value": 0.3147536861160204,
+      "ci_lo": -2814.2334544562564,
+      "ci_hi": 906.0431583557053,
+      "std_coef": -0.35454524472826443,
+      "total_spend_M": 0.62895,
+      "marginal_roi": -8344.422720804254,
+      "spend_share": 0.020738063714407635,
+      "significant": false
+    }
+  ],
+  "macro": {
+    "gdp_p": 0.5837,
+    "cpi_p": 0.6694,
+    "ca_unemployment_p": 0.7,
+    "consumer_sentiment_p": 0.5577,
+    "ecommerce_pct_p": 0.8506,
+    "covid_lockdown_p": 0.9895,
+    "covid_relaxation_p": 0.6176
+  },
+  "optimisation": {
+    "current": {
+      "Digital": 2633.0,
+      "Radio": 399.2,
+      "TV": 0.6
+    },
+    "optimal": {
+      "Digital": 1633.8,
+      "Radio": 1399.0,
+      "TV": 0.0
+    },
+    "uplift_pct": 31.7
+  },
+  "findings": {
+    "Q1": "Only Digital and Radio are statistically significant drivers of sales. TV shows no measurable lift.",
+    "Q2": "Digital is the most important channel (std coef=0.81, p<0.001), followed by Radio.",
+    "Q3": "None of the macro variables (GDP p=0.584, CPI p=0.669, CA Unemployment p=0.700, Sentiment p=0.558, E-Commerce p=0.851) reach statistical significance after controlling for media spend.",
+    "Q4": "COVID lockdown is not significant (p=0.990). Sales were sustained by continued digital marketing investment in the Bay Area market."
+  }
+}

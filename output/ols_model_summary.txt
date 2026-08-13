@@ -1,0 +1,73 @@
+Full Model
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  sales   R-squared:                       0.895
+Model:                            OLS   Adj. R-squared:                  0.834
+Method:                 Least Squares   F-statistic:                     8.749
+Date:                Thu, 13 Aug 2026   Prob (F-statistic):           6.25e-06
+Time:                        12:58:46   Log-Likelihood:                -170.83
+No. Observations:                  36   AIC:                             369.7
+Df Residuals:                      22   BIC:                             391.8
+Df Model:                          13                                         
+Covariance Type:                  HC3                                         
+======================================================================================
+                         coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+const               -600.0766    684.698     -0.876      0.381   -1942.059     741.906
+digital_sat           97.2151     16.198      6.002      0.000      65.468     128.962
+radio_sat             83.1095     18.879      4.402      0.000      46.107     120.112
+tv_sat              -954.0951    949.068     -1.005      0.315   -2814.233     906.043
+gdp_change           188.5026    344.032      0.548      0.584    -485.788     862.794
+cpi_yoy               11.2073     26.246      0.427      0.669     -40.234      62.649
+ca_unemployment        7.4012     19.205      0.385      0.700     -30.239      45.041
+consumer_sentiment     1.6621      2.835      0.586      0.558      -3.894       7.219
+ecommerce_pct          6.8861     36.554      0.188      0.851     -64.759      78.532
+covid_lockdown         2.1204    161.139      0.013      0.990    -313.707     317.948
+covid_relaxation     -60.0423    120.276     -0.499      0.618    -295.779     175.694
+month_sin            -10.9667     23.474     -0.467      0.640     -56.975      35.042
+month_cos             -1.0886     15.234     -0.071      0.943     -30.947      28.770
+trend                  0.7320      4.934      0.148      0.882      -8.938      10.402
+==============================================================================
+Omnibus:                        0.145   Durbin-Watson:                   3.071
+Prob(Omnibus):                  0.930   Jarque-Bera (JB):                0.080
+Skew:                          -0.094   Prob(JB):                        0.961
+Kurtosis:                       2.866   Cond. No.                     8.83e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 8.83e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Marketing-Only Model
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  sales   R-squared:                       0.875
+Model:                            OLS   Adj. R-squared:                  0.854
+Method:                 Least Squares   F-statistic:                     19.77
+Date:                Thu, 13 Aug 2026   Prob (F-statistic):           1.09e-08
+Time:                        12:58:46   Log-Likelihood:                -174.01
+No. Observations:                  36   AIC:                             360.0
+Df Residuals:                      30   BIC:                             369.5
+Df Model:                           5                                         
+Covariance Type:                  HC3                                         
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const        -371.7349     97.186     -3.825      0.000    -562.217    -181.253
+digital_sat   103.3941     11.972      8.637      0.000      79.930     126.858
+radio_sat      84.7977     15.112      5.611      0.000      55.180     114.416
+tv_sat       -340.9681    286.753     -1.189      0.234    -902.994     221.058
+month_sin      -8.4878      8.144     -1.042      0.297     -24.449       7.473
+month_cos       4.4245     10.464      0.423      0.672     -16.085      24.934
+==============================================================================
+Omnibus:                        2.227   Durbin-Watson:                   2.617
+Prob(Omnibus):                  0.328   Jarque-Bera (JB):                1.228
+Skew:                           0.407   Prob(JB):                        0.541
+Kurtosis:                       3.396   Cond. No.                         186.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

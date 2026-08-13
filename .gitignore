@@ -1,0 +1,14 @@
+# Internal Candidate Notes & Private Study Materials (Do Not Upload)
+interview_study_guide.md
+pen_and_paper_plan.md
+walkthrough.md
+task.md
+implementation_plan.md
+
+# Temporary & Cache Files
+__pycache__/
+*.pyc
+~$*
+.DS_Store
+.idea/
+.vscode/

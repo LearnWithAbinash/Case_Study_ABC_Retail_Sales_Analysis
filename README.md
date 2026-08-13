@@ -86,9 +86,8 @@ Using SciPy SLSQP constrained optimization subject to fixed total budget ($\sum 
 ## 📂 Public Repository Structure
 
 ```
-abc-retail-mmm-casestudy/
+Case_Study_ABC_Retail_Sales_Analysis/
 ├── index.html                            <-- Live Web Dashboard (GitHub Pages)
-├── abc_retail_dashboard.html              <-- Interactive 5-Tab HTML Dashboard
 ├── abc_retail_mmm_analysis.py            <-- Python MMM Script (Grid Search & Regression)
 ├── generate_pptx.py                      <-- PowerPoint Deck Generator Script
 ├── ABC_Retail_Case_Study_Presentation.pptx <-- Executive 12-Slide Deck

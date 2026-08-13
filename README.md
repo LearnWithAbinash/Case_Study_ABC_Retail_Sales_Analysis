@@ -6,8 +6,8 @@
 [![Live Dashboard](https://img.shields.io/badge/Live--Dashboard-GitHub--Pages-brightgreen.svg)](https://LearnWithAbinash.github.io/Case_Study_ABC_Retail_Sales_Analysis/)
 
 > **Executive Portfolio Project & Case Study Submission**  
-> **Target Market:** Bay Area District, California, US  
-> **Demographic Target:** Consumers Aged 12–45 Years  
+> **Target Market:** Bay Area District, California, US \| **Demographic:** Age Group 12–45 Years  
+> *Note: ABC Retail is a hypothetical company name and all data used in this project are sample/anonymized datasets created for demonstration purposes.*
 
 ---
 

@@ -113,7 +113,7 @@ add_text_box(s1, Inches(1.5), Inches(4.5), Inches(10), Inches(0.6),
 add_text_box(s1, Inches(1.5), Inches(5.5), Inches(10), Inches(0.5),
              'Abinash Sahu  |  Team Lead — Data Intelligence  |  August 2026', size=13, color=LGRAY, align=PP_ALIGN.CENTER)
 add_text_box(s1, Inches(1.5), Inches(6.2), Inches(10), Inches(0.5),
-             'Marketing Mix Modeling Case Study', size=12, color=LGRAY, align=PP_ALIGN.CENTER)
+             'Marketing Intelligence Case Study  |  Note: ABC Retail is a hypothetical company name (sample data)', size=11, color=LGRAY, align=PP_ALIGN.CENTER)
 
 # ------------------------------------------------------------------
 # Slide 2: Executive Summary

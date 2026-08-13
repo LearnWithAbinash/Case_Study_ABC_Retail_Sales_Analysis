@@ -3,7 +3,7 @@
 ===============================================================================
 ABC RETAIL SALES ANALYSIS — Marketing Mix Modeling (MMM)
 ===============================================================================
-Case Study: LKQ India — Team Lead - Data Intelligence
+Case Study: ABC Retail Sales Analysis — Team Lead - Data Intelligence
 Author: Abinash Sahu | August 2026
 
 Objective

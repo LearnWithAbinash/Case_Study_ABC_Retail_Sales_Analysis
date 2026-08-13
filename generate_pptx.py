@@ -113,7 +113,7 @@ add_text_box(s1, Inches(1.5), Inches(4.5), Inches(10), Inches(0.6),
 add_text_box(s1, Inches(1.5), Inches(5.5), Inches(10), Inches(0.5),
              'Abinash Sahu  |  Team Lead — Data Intelligence  |  August 2026', size=13, color=LGRAY, align=PP_ALIGN.CENTER)
 add_text_box(s1, Inches(1.5), Inches(6.2), Inches(10), Inches(0.5),
-             'Case Study for LKQ India', size=12, color=LGRAY, align=PP_ALIGN.CENTER)
+             'Marketing Mix Modeling Case Study', size=12, color=LGRAY, align=PP_ALIGN.CENTER)
 
 # ------------------------------------------------------------------
 # Slide 2: Executive Summary

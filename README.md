@@ -3,7 +3,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![Statsmodels](https://img.shields.io/badge/statsmodels-OLS--HC3-green.svg)](https://www.statsmodels.org/)
 [![SciPy](https://img.shields.io/badge/SciPy-SLSQP--Optimization-orange.svg)](https://scipy.org/)
-[![Live Dashboard](https://img.shields.io/badge/Live--Dashboard-GitHub--Pages-brightgreen.svg)](#-live-interactive-dashboard)
+[![Live Dashboard](https://img.shields.io/badge/Live--Dashboard-GitHub--Pages-brightgreen.svg)](https://LearnWithAbinash.github.io/Case_Study_ABC_Retail_Sales_Analysis/)
 
 > **Executive Portfolio Project & Case Study Submission**  
 > **Target Market:** Bay Area District, California, US  
@@ -14,7 +14,7 @@
 ## 🌐 Live Interactive Dashboard
 
 Access the live interactive SaaS marketing intelligence dashboard:  
-👉 **[View Live Dashboard](index.html)** *(Hosted via GitHub Pages)*
+👉 **[View Live Web Dashboard](https://LearnWithAbinash.github.io/Case_Study_ABC_Retail_Sales_Analysis/)** *(Hosted via GitHub Pages)*
 
 ---
 

@@ -214,6 +214,41 @@
         .insight-box p { font-size: 13px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 10px; }
         .insight-box strong { color: var(--text-primary); }
 
+        /* ===== SLIDE VIEWER ===== */
+        .slide-viewer-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            min-height: 520px;
+        }
+        .slide-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+        }
+        .slide-title { font-size: 22px; font-weight: 800; color: var(--navy); }
+        .slide-num { font-size: 13px; font-weight: 700; color: var(--blue); background: var(--blue-light); padding: 6px 14px; border-radius: 99px; }
+        .slide-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start; }
+        .slide-content-list { list-style: none; }
+        .slide-content-list li {
+            padding: 12px 16px; background: #f8fafc; border-left: 3px solid var(--blue);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 12px;
+            font-size: 13px; line-height: 1.6; color: var(--text-secondary);
+        }
+        .slide-controls {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border);
+        }
+        .btn {
+            padding: 10px 22px; border-radius: var(--radius-sm); border: none;
+            font-size: 13px; font-weight: 700; cursor: pointer; transition: var(--transition);
+        }
+        .btn-primary { background: var(--blue); color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-secondary { background: #e2e8f0; color: var(--text-secondary); }
+        .btn-secondary:hover { background: #cbd5e1; }
+
         /* ===== TABLE ===== */
         .data-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
         .data-table thead th {
@@ -279,6 +314,7 @@
             .kpi-row { grid-template-columns: repeat(2, 1fr); }
             .grid-2, .grid-2-1 { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: 1fr; }
+            .slide-body { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .header { padding: 12px 16px; flex-direction: column; gap: 10px; }
@@ -309,7 +345,8 @@
     <div class="nav-tab" data-tab="channels">Channel Effectiveness</div>
     <div class="nav-tab" data-tab="covid">COVID &amp; Macro Impact</div>
     <div class="nav-tab" data-tab="simulator">Budget Simulator</div>
-    <div class="nav-tab" data-tab="methodology">Methodology</div>
+    <div class="nav-tab" data-tab="slides">Executive Slide Deck (12 Slides)</div>
+    <div class="nav-tab" data-tab="methodology">Methodology &amp; Governance</div>
 </nav>
 
 <main class="main">
@@ -346,7 +383,7 @@
             </div>
             <div class="insight-box">
                 <h3><span class="insight-icon">A</span> Executive Summary</h3>
-                <p><strong>Target Market:</strong> ABC Retail is a premier retailer in the <strong>Bay Area district of California</strong> targeting consumers aged 12–45 years.</p>
+                <p><strong>Target Market:</strong> ABC Retail operates in the <strong>Bay Area district of California</strong> targeting consumers aged 12–45 years.</p>
                 <p><strong>Media Drivers:</strong> Digital is the #1 driver ($\beta^* = 0.82$). Radio is #2 ($\beta^* = 0.57$) with a high marginal ROI ($7.07/$1).</p>
                 <p><strong>Macro & COVID:</strong> Regional CA Unemployment, GDP, CPI Inflation, Sentiment, and COVID lockdowns show no statistical impact after controlling for media spend.</p>
                 <p><strong>Recommendation:</strong> Reallocate spend from saturated Digital (87% current) to Radio (13% current) to unlock <strong>+31.7% media uplift</strong>.</p>
@@ -543,7 +580,36 @@
         </div>
     </div>
 
-    <!-- ===== TAB 5: METHODOLOGY ===== -->
+    <!-- ===== TAB 5: SLIDES VIEWER ===== -->
+    <div class="tab-panel" id="tab-slides">
+        <div class="slide-viewer-card">
+            <div class="slide-header">
+                <div class="slide-title" id="stitle">Slide 1: ABC Retail Marketing Mix Analysis</div>
+                <div class="slide-num" id="snum">Slide 1 of 12</div>
+            </div>
+            <div class="slide-body">
+                <div>
+                    <p style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;" id="ssub">Executive Slide Deck Overview</p>
+                    <ul class="slide-content-list" id="slist">
+                        <li><strong>Project Target:</strong> Bay Area district, California retail market targeting age group 12–45.</li>
+                        <li><strong>Problem:</strong> Subdued revenue growth over 36 months despite $3,033M total marketing spend.</li>
+                        <li><strong>Solution:</strong> Marketing Mix Modeling (MMM) with grid-searched adstock decay, log-saturation, and HC3 robust inference.</li>
+                        <li><strong>Outcome:</strong> Reallocating budget delivers +31.7% revenue uplift at zero extra cost.</li>
+                    </ul>
+                </div>
+                <div style="text-align:center;">
+                    <img id="simg" src="output/charts/01_monthly_sales_trend.png" style="max-width:100%;border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);border:1px solid var(--border);" alt="Slide Graphic">
+                </div>
+            </div>
+            <div class="slide-controls">
+                <button class="btn btn-secondary" id="btnPrev">← Previous Slide</button>
+                <div style="font-size:12px;color:var(--text-muted);" id="stip">Click Next or use Arrow keys to navigate presentation slides</div>
+                <button class="btn btn-primary" id="btnNext">Next Slide →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB 6: METHODOLOGY ===== -->
     <div class="tab-panel" id="tab-methodology">
         <div class="grid-2">
             <div class="card">
@@ -672,7 +738,7 @@ new Chart(document.getElementById('chartSens'), {
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.raw.toLocaleString()+'M'}}},scales:{y:{beginAtZero:false,ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'B'},grid:{color:'rgba(0,0,0,0.04)'}},x:{title:{display:true,text:'Budget change from current'},grid:{display:false}}}}
 });
 
-// Tab 5: Adstock Curves
+// Tab 6: Adstock Curves
 const monthsAd = Array.from({length:12}, (_,i)=>i);
 new Chart(document.getElementById('chartAdstock'), {
     type:'line', data:{labels:monthsAd.map(m=>'m+'+m),datasets:[
@@ -682,6 +748,185 @@ new Chart(document.getElementById('chartAdstock'), {
     ]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{title:{display:true,text:'Remaining Carryover Effect (%)'},min:0,max:100,grid:{color:'rgba(0,0,0,0.04)'}},x:{grid:{display:false}}}}
 });
+
+// Presentation Slides Data (12 Slides)
+const slidesData = [
+    {
+        title: "Slide 1: ABC Retail Marketing Mix Analysis",
+        sub: "Executive Presentation Overview",
+        num: "Slide 1 of 12",
+        img: "output/charts/01_monthly_sales_trend.png",
+        items: [
+            "<strong>Target Market:</strong> Bay Area district of California retail market targeting age group 12–45 years.",
+            "<strong>Problem:</strong> Subdued revenue growth over 36 months despite $3,033M total marketing spend.",
+            "<strong>Solution:</strong> Marketing Mix Modeling (MMM) with grid-searched adstock decay and log-saturation.",
+            "<strong>Outcome:</strong> Reallocating budget delivers +31.7% revenue uplift at zero extra cost."
+        ]
+    },
+    {
+        title: "Slide 2: Executive Summary & Key Results",
+        sub: "36 months of sales and marketing data, Jan 2020 – Dec 2022",
+        num: "Slide 2 of 12",
+        img: "output/charts/03_annual_sales.png",
+        items: [
+            "<strong>Total Revenue:</strong> $8,750M across 36 months (2020–2022).",
+            "<strong>Model Accuracy:</strong> R² = 0.895 (89.5% variance explained), LOOCV R² = 0.697.",
+            "<strong>Top Driver:</strong> Digital (std β = 0.815, p < 0.001) is the #1 volume driver.",
+            "<strong>Top ROI Channel:</strong> Radio delivers $7.07 per $1 spend due to low saturation.",
+            "<strong>Optimization Potential:</strong> +31.7% incremental sales uplift via budget reallocation."
+        ]
+    },
+    {
+        title: "Slide 3: MMM Methodology & Data Engineering",
+        sub: "Rigorous econometric modeling beyond basic linear regression",
+        num: "Slide 3 of 12",
+        img: "output/charts/06_adstock_decay.png",
+        items: [
+            "<strong>Geometric Adstock:</strong> Models carryover memory effect. Tested 900 decay rate combinations via grid search.",
+            "<strong>Optimal Decay Rates:</strong> Digital λ=0.10 (Half-life 0.3mo), Radio λ=0.30 (Half-life 0.6mo), TV λ=0.90 (Half-life 6.6mo).",
+            "<strong>Log-Saturation:</strong> log(1+Spend) captures diminishing returns at higher spend levels.",
+            "<strong>HC3 Robust Standard Errors:</strong> Protects inference against small-sample heteroscedasticity."
+        ]
+    },
+    {
+        title: "Slide 4: Channel Effectiveness Overview",
+        sub: "Statistical evaluation of media drivers",
+        num: "Slide 4 of 12",
+        img: "output/charts/07_standardized_coefficients.png",
+        items: [
+            "<strong>Digital (β = +0.815, p < 0.001):</strong> Highly effective. Dominant driver of retail sales.",
+            "<strong>Radio (β = +0.573, p < 0.001):</strong> Highly effective. Strong positive impact with high efficiency.",
+            "<strong>TV (β = -0.355, p = 0.315):</strong> Not statistically significant. TV spend ($0.6M total) is too small to drive measurable lift.",
+            "<strong>Takeaway:</strong> Only Digital and Radio drive revenue in this dataset."
+        ]
+    },
+    {
+        title: "Slide 5: Digital Channel Deep-Dive",
+        sub: "High volume driver reaching diminishing returns",
+        num: "Slide 5 of 12",
+        img: "output/charts/16_digital_saturation.png",
+        items: [
+            "<strong>Spend Share:</strong> Digital accounts for 86.8% of total marketing budget ($2,633M).",
+            "<strong>Marginal ROI:</strong> $1.32 revenue generated per $1 additional spend.",
+            "<strong>Saturation Point:</strong> Digital spend has entered the diminishing returns zone on the log curve.",
+            "<strong>Action:</strong> Reduce Digital spend share from 87% to 54% to free up budget for higher-ROI channels."
+        ]
+    },
+    {
+        title: "Slide 6: Radio & TV Comparison",
+        sub: "Radio is under-invested; TV lacks statistical evidence",
+        num: "Slide 6 of 12",
+        img: "output/charts/08_channel_roi.png",
+        items: [
+            "<strong>Radio Marginal ROI:</strong> $7.07 per $1 spend — over 5x higher efficiency than Digital!",
+            "<strong>Under-Investment:</strong> Radio receives only 13.2% of spend ($399M), leaving substantial headroom.",
+            "<strong>TV Status:</strong> TV spend is recorded in thousands (0.02% share). Holds negative/insignificant coefficient.",
+            "<strong>Action:</strong> Scale Radio spend share from 13.2% to 46.1%. Reallocate TV spend."
+        ]
+    },
+    {
+        title: "Slide 7: COVID-19 Impact Analysis",
+        sub: "Lockdown did not collapse sales — marketing sustained demand",
+        num: "Slide 7 of 12",
+        img: "output/charts/09_covid_impact_bridge.png",
+        items: [
+            "<strong>Lockdown Effect (Q2 2020):</strong> Coefficient +$2.1M, p = 0.990 — NOT statistically significant.",
+            "<strong>Marketing Defense:</strong> ABC increased digital spend during lockdown ($57M/mo vs $49M pre-COVID), capturing online sales.",
+            "<strong>Q3 2020 Sales Dip:</strong> Sales dropped to $179M/mo because marketing budget was cut to $31M/mo, not due to COVID.",
+            "<strong>Takeaway:</strong> Marketing execution drives sales trajectory. COVID was not a structural break."
+        ]
+    },
+    {
+        title: "Slide 8: Macro-Economic Factors Evaluation",
+        sub: "GDP, CPI, Unemployment, and Sentiment show no impact after media controls",
+        num: "Slide 8 of 12",
+        img: "output/charts/02_quarterly_sales_gdp.png",
+        items: [
+            "<strong>GDP % Change:</strong> p = 0.584. Sales remained resilient despite Q2 2020 GDP drop (–29.9%).",
+            "<strong>CPI Inflation (YoY):</strong> p = 0.669. Peak inflation of 9.1% in 2022 did not alter demand.",
+            "<strong>CA Unemployment:</strong> p = 0.700. CA unemployment peak of 16.4% did not dent retail sales.",
+            "<strong>Consumer Sentiment & E-Commerce %:</strong> Neither reached statistical significance.",
+            "<strong>Bay Area Insight:</strong> Retail demand is driven by brand awareness & media execution, not macro cycles."
+        ]
+    },
+    {
+        title: "Slide 9: SciPy SLSQP Budget Optimization",
+        sub: "Constrained reallocation yields +31.7% sales uplift",
+        num: "Slide 9 of 12",
+        img: "output/charts/10_budget_allocation.png",
+        items: [
+            "<strong>Current Allocation:</strong> Digital 86.8% ($2,633M), Radio 13.2% ($399M), TV 0.02% ($0.6M).",
+            "<strong>Optimal Allocation:</strong> Digital 53.9% ($1,634M), Radio 46.1% ($1,399M), TV 0% ($0M).",
+            "<strong>Diminishing Returns:</strong> Shifting spend from saturated Digital to unsaturated Radio maximizes returns.",
+            "<strong>Outcome:</strong> +31.7% media-driven sales uplift from the exact same $3,033M budget!"
+        ]
+    },
+    {
+        title: "Slide 10: Budget Sensitivity & Risk Analysis",
+        sub: "Elasticity analysis under budget variation (+/- 30%)",
+        num: "Slide 10 of 12",
+        img: "output/charts/11_sensitivity_tornado.png",
+        items: [
+            "<strong>Spend Elasticity:</strong> Increasing total budget by +10% to +30% yields diminishing incremental revenue.",
+            "<strong>Risk Mitigation:</strong> Budget cuts up to -10% can be absorbed by trimming saturated Digital spend.",
+            "<strong>Optimisation Robustness:</strong> Reallocation benefits hold across all tested total budget levels.",
+            "<strong>Haircut Principle:</strong> Apply 50% confidence haircut in sandbox simulations for conservative forecasting."
+        ]
+    },
+    {
+        title: "Slide 11: Actionable Leadership Roadmap",
+        sub: "30 / 60 / 90-day implementation plan",
+        num: "Slide 11 of 12",
+        img: "output/charts/14_channel_spend_timeline.png",
+        items: [
+            "<strong>Next 30 Days (Foundation):</strong> Standardize channel KPI definitions, establish automated data pipelines, and set up Digital A/B testing.",
+            "<strong>Next 60 Days (Validation):</strong> Execute matched-market Radio geo-holdout tests in California sub-markets.",
+            "<strong>Next 90 Days (Production):</strong> Deploy production MMM refresh engine with automated monthly budget recommendations."
+        ]
+    },
+    {
+        title: "Slide 12: Model Governance & Appendix",
+        sub: "Technical validation and residual diagnostics",
+        num: "Slide 12 of 12",
+        img: "output/charts/13_residual_diagnostics.png",
+        items: [
+            "<strong>Model Accuracy:</strong> R² = 0.8954 | Adjusted R² = 0.8336 | LOOCV R² = 0.6973.",
+            "<strong>Residual Diagnostics:</strong> Durbin-Watson = 3.07 | Breusch-Pagan p = 0.314 (Homoscedastic).",
+            "<strong>Data Governance:</strong> HC3 robust standard errors ensure conservative p-values.",
+            "<strong>Disclaimer:</strong> ABC Retail is a hypothetical company name used for case study modeling."
+        ]
+    }
+];
+
+let currentSlideIdx = 0;
+function renderSlide(idx) {
+    const s = slidesData[idx];
+    document.getElementById('stitle').textContent = s.title;
+    document.getElementById('ssub').textContent = s.sub;
+    document.getElementById('snum').textContent = s.num;
+    document.getElementById('simg').src = s.img;
+    const listEl = document.getElementById('slist');
+    listEl.innerHTML = s.items.map(item => `<li>${item}</li>`).join('');
+    document.getElementById('btnPrev').disabled = (idx === 0);
+    document.getElementById('btnNext').disabled = (idx === slidesData.length - 1);
+}
+
+document.getElementById('btnPrev').addEventListener('click', () => {
+    if (currentSlideIdx > 0) { currentSlideIdx--; renderSlide(currentSlideIdx); }
+});
+document.getElementById('btnNext').addEventListener('click', () => {
+    if (currentSlideIdx < slidesData.length - 1) { currentSlideIdx++; renderSlide(currentSlideIdx); }
+});
+
+document.addEventListener('keydown', (e) => {
+    const activeTab = document.querySelector('.nav-tab.active');
+    if (activeTab && activeTab.dataset.tab === 'slides') {
+        if (e.key === 'ArrowLeft' && currentSlideIdx > 0) { currentSlideIdx--; renderSlide(currentSlideIdx); }
+        if (e.key === 'ArrowRight' && currentSlideIdx < slidesData.length - 1) { currentSlideIdx++; renderSlide(currentSlideIdx); }
+    }
+});
+
+renderSlide(0);
 
 // Tab Navigation
 document.querySelectorAll('.nav-tab').forEach(tab=>{

@@ -570,16 +570,20 @@ print("    05_channel_scatter.png")
 
 # -- 6  Adstock decay
 fig, ax = plt.subplots(figsize=(10, 5)); months = np.arange(0, 13)
-for ch, rate, c, lbl in [('digital',DECAY['digital'],C['blue'],f"Digital (lambda={DECAY['digital']:.2f})"),
-                          ('radio',DECAY['radio'],C['teal'],f"Radio (lambda={DECAY['radio']:.2f})"),
-                          ('tv',DECAY['tv'],C['orange'],f"TV (lambda={DECAY['tv']:.2f})")]:
+decay_info = [
+    ('digital', DECAY['digital'], C['blue'], f"Digital (lambda={DECAY['digital']:.2f})", (0.5, 20)),
+    ('radio',   DECAY['radio'],   C['teal'], f"Radio (lambda={DECAY['radio']:.2f})",   (1.2, 52)),
+    ('tv',      DECAY['tv'],      C['orange'], f"TV (lambda={DECAY['tv']:.2f})",      (7.0, 62)),
+]
+for ch, rate, c, lbl, (tx, ty) in decay_info:
     ax.plot(months, rate**months*100, color=c, lw=3, marker='o', ms=6, mfc='white', mew=2, mec=c, label=lbl)
     hl = np.log(0.5)/np.log(rate) if rate>0 else 0
-    ax.annotate(f'Half-life {hl:.1f}mo', xy=(hl,50), xytext=(hl+0.5,55), fontsize=8, color=c, fontweight='bold')
-ax.axhline(50, color=C['gray'], lw=0.5, ls=':')
+    ax.annotate(f'Half-life {hl:.1f}mo', xy=(hl,50), xytext=(tx, ty), fontsize=9, color=c, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=c, lw=1.2, connectionstyle="arc3,rad=0.2"))
+ax.axhline(50, color=C['gray'], lw=0.8, ls=':', label='50% Half-life threshold')
 ax.set_xlabel('Months after exposure'); ax.set_ylabel('Remaining effect (%)'); ax.set_ylim(-5,105); ax.set_xlim(-0.5,12.5)
 ax.set_title('Adstock decay curves (data-optimised rates via grid search)', loc='left', color=C['navy'], pad=12)
-ax.legend(fontsize=10)
+ax.legend(fontsize=9, loc='upper right')
 fig.tight_layout(); fig.savefig(CHARTS_DIR/'06_adstock_decay.png'); plt.close(fig)
 print("    06_adstock_decay.png")
 

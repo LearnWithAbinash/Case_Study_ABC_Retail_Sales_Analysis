@@ -165,6 +165,7 @@
         /* ===== GRIDS ===== */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
         .grid-2-1 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 14px; margin-bottom: 20px; }
         .full-width { margin-bottom: 20px; }
 
@@ -195,6 +196,18 @@
         .fill-blue { background: linear-gradient(90deg, var(--blue), var(--purple)); }
         .fill-teal { background: linear-gradient(90deg, var(--teal), var(--emerald)); }
         .fill-red { background: var(--red); }
+
+        /* ===== GLOSSARY CARD ===== */
+        .glossary-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .glossary-card:hover { box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+        .glossary-term { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
+        .glossary-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--bg-accent); color: var(--blue); }
+        .glossary-def { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+        .glossary-analogy { font-size: 12px; padding: 10px 12px; background: #f8fafc; border-left: 3px solid var(--blue); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text-primary); }
 
         /* ===== INSIGHT BOX ===== */
         .insight-box {
@@ -313,7 +326,7 @@
         @media (max-width: 1024px) {
             .kpi-row { grid-template-columns: repeat(2, 1fr); }
             .grid-2, .grid-2-1 { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: 1fr; }
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
             .slide-body { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
@@ -345,7 +358,8 @@
     <div class="nav-tab" data-tab="channels">Channel Effectiveness</div>
     <div class="nav-tab" data-tab="covid">COVID &amp; Macro Impact</div>
     <div class="nav-tab" data-tab="simulator">Budget Simulator</div>
-    <div class="nav-tab" data-tab="slides">Executive Slide Deck (12 Slides)</div>
+    <div class="nav-tab" data-tab="slides">Executive Slide Deck (13 Slides)</div>
+    <div class="nav-tab" data-tab="glossary">Glossary &amp; Concepts</div>
     <div class="nav-tab" data-tab="methodology">Methodology &amp; Governance</div>
 </nav>
 
@@ -585,7 +599,7 @@
         <div class="slide-viewer-card">
             <div class="slide-header">
                 <div class="slide-title" id="stitle">Slide 1: ABC Retail Marketing Mix Analysis</div>
-                <div class="slide-num" id="snum">Slide 1 of 12</div>
+                <div class="slide-num" id="snum">Slide 1 of 13</div>
             </div>
             <div class="slide-body">
                 <div>
@@ -609,7 +623,121 @@
         </div>
     </div>
 
-    <!-- ===== TAB 6: METHODOLOGY ===== -->
+    <!-- ===== TAB 6: GLOSSARY ===== -->
+    <div class="tab-panel" id="tab-glossary">
+        <div style="margin-bottom:20px;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);">
+            <h2 style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px;">Glossary of Marketing &amp; Econometric Terms</h2>
+            <p style="font-size:13px;color:var(--text-muted);">Plain-English definitions, everyday analogies, and real-world examples for non-technical stakeholders.</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>1. Adstock (Ad Memory Decay)</span>
+                    <span class="glossary-badge">Memory Effect</span>
+                </div>
+                <div class="glossary-def">
+                    Advertising impact does not vanish immediately when an ad campaign stops. A percentage of the ad message carries over into customer memory across future weeks and months.
+                </div>
+                <div class="glossary-analogy">
+                    <strong>☕ The Coffee Analogy:</strong> Drinking a cup of coffee at 8 AM makes you 100% awake. At 12 PM, you are still 50% awake because caffeine decays slowly in your body over time.
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>2. Log-Saturation (Diminishing Returns)</span>
+                    <span class="glossary-badge">Non-Linear Response</span>
+                </div>
+                <div class="glossary-def">
+                    As you spend more money on the same ad channel, every extra dollar generates less additional sales lift because you run out of new, high-intent audiences to reach.
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🍕 The Pizza Slice Analogy:</strong> When starving, the 1st pizza slice tastes amazing (High ROI). By the 10th slice, you are full; eating another slice gives zero extra enjoyment (Zero ROI).
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>3. Marginal ROI vs. Total ROI</span>
+                    <span class="glossary-badge">Next-Dollar Return</span>
+                </div>
+                <div class="glossary-def">
+                    <strong>Total ROI</strong> is historical average return (Total Revenue / Total Spend). <strong>Marginal ROI</strong> measures how much revenue the <em>NEXT $1 spend</em> will generate right now ($7.07 Radio vs $1.32 Digital).
+                </div>
+                <div class="glossary-analogy">
+                    <strong>💡 Decision Rule:</strong> Always put your next marketing dollar into the channel with the highest <em>Marginal ROI</em>, even if another channel has higher total volume!
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>4. Standardised Coefficient (β*)</span>
+                    <span class="glossary-badge">Driver Importance</span>
+                </div>
+                <div class="glossary-def">
+                    Scales all variables (digital millions, TV thousands, GDP percentages, COVID 0/1 toggles) onto a standard scale from -1 to +1 so we can compare driver importance fairly.
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🍎 Comparing Apples to Elephants:</strong> Standardising converts all different units into standard deviations so you can directly compare which driver is truly strongest.
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>5. P-Value &amp; Statistical Significance</span>
+                    <span class="glossary-badge">Confidence Test</span>
+                </div>
+                <div class="glossary-def">
+                    The P-value tests whether an observed result was caused by real underlying impact or pure random luck. A $p < 0.05$ means less than a 5% chance of random luck (statistically significant!).
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🪙 The Coin Flip Test:</strong> Flipping heads 10 times in a row has $p < 0.001$. It proves the coin is biased (real effect), not luck!
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>6. LOOCV R-Squared ($R^2$)</span>
+                    <span class="glossary-badge">Out-of-Sample Test</span>
+                </div>
+                <div class="glossary-def">
+                    <strong>Leave-One-Out Cross Validation</strong> hides 1 month of sales data, trains the model on the remaining 35 months, and tests if it accurately predicts the hidden month.
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🎓 Exam Score vs Practice Score:</strong> Regular $R^2$ (89.5%) is your practice test score. LOOCV $R^2$ (69.7%) is your final exam score on unseen questions, proving zero overfitting!
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>7. HC3 Robust Standard Errors</span>
+                    <span class="glossary-badge">Small-Sample Safety</span>
+                </div>
+                <div class="glossary-def">
+                    A mathematical correction method used when working with small datasets ($n=36$ months) to prevent false-positive claims caused by unequal error variance (heteroscedasticity).
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🛡️ Statistical Safety Net:</strong> Ensures that p-values are conservative and reliable so leadership never makes costly decisions based on statistical noise.
+                </div>
+            </div>
+
+            <div class="glossary-card">
+                <div class="glossary-term">
+                    <span>8. SciPy SLSQP Optimiser</span>
+                    <span class="glossary-badge">Smart Allocator</span>
+                </div>
+                <div class="glossary-def">
+                    Sequential Least Squares Programming algorithm that automatically searches millions of budget combinations to find the exact mix that maximizes total sales under budget constraints.
+                </div>
+                <div class="glossary-analogy">
+                    <strong>🎯 Perfect Budget Reallocator:</strong> Found that shifting budget to 54% Digital / 46% Radio unlocks **+31.7% more revenue** for zero extra cost!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB 7: METHODOLOGY ===== -->
     <div class="tab-panel" id="tab-methodology">
         <div class="grid-2">
             <div class="card">
@@ -738,7 +866,7 @@ new Chart(document.getElementById('chartSens'), {
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.raw.toLocaleString()+'M'}}},scales:{y:{beginAtZero:false,ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'B'},grid:{color:'rgba(0,0,0,0.04)'}},x:{title:{display:true,text:'Budget change from current'},grid:{display:false}}}}
 });
 
-// Tab 6: Adstock Curves
+// Tab 7: Adstock Curves
 const monthsAd = Array.from({length:12}, (_,i)=>i);
 new Chart(document.getElementById('chartAdstock'), {
     type:'line', data:{labels:monthsAd.map(m=>'m+'+m),datasets:[
@@ -749,24 +877,24 @@ new Chart(document.getElementById('chartAdstock'), {
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{title:{display:true,text:'Remaining Carryover Effect (%)'},min:0,max:100,grid:{color:'rgba(0,0,0,0.04)'}},x:{grid:{display:false}}}}
 });
 
-// Presentation Slides Data (12 Slides)
+// Presentation Slides Data (13 Slides)
 const slidesData = [
     {
         title: "Slide 1: ABC Retail Marketing Mix Analysis",
         sub: "Executive Presentation Overview",
-        num: "Slide 1 of 12",
+        num: "Slide 1 of 13",
         img: "output/charts/01_monthly_sales_trend.png",
         items: [
-            "<strong>Target Market:</strong> Bay Area district of California retail market targeting age group 12–45 years.",
+            "<strong>Project Target:</strong> Bay Area district, California retail market targeting age group 12–45.",
             "<strong>Problem:</strong> Subdued revenue growth over 36 months despite $3,033M total marketing spend.",
-            "<strong>Solution:</strong> Marketing Mix Modeling (MMM) with grid-searched adstock decay and log-saturation.",
+            "<strong>Solution:</strong> Marketing Mix Modeling (MMM) with grid-searched adstock decay, log-saturation, and HC3 robust inference.",
             "<strong>Outcome:</strong> Reallocating budget delivers +31.7% revenue uplift at zero extra cost."
         ]
     },
     {
         title: "Slide 2: Executive Summary & Key Results",
         sub: "36 months of sales and marketing data, Jan 2020 – Dec 2022",
-        num: "Slide 2 of 12",
+        num: "Slide 2 of 13",
         img: "output/charts/03_annual_sales.png",
         items: [
             "<strong>Total Revenue:</strong> $8,750M across 36 months (2020–2022).",
@@ -779,7 +907,7 @@ const slidesData = [
     {
         title: "Slide 3: MMM Methodology & Data Engineering",
         sub: "Rigorous econometric modeling beyond basic linear regression",
-        num: "Slide 3 of 12",
+        num: "Slide 3 of 13",
         img: "output/charts/06_adstock_decay.png",
         items: [
             "<strong>Geometric Adstock:</strong> Models carryover memory effect. Tested 900 decay rate combinations via grid search.",
@@ -791,7 +919,7 @@ const slidesData = [
     {
         title: "Slide 4: Channel Effectiveness Overview",
         sub: "Statistical evaluation of media drivers",
-        num: "Slide 4 of 12",
+        num: "Slide 4 of 13",
         img: "output/charts/07_standardized_coefficients.png",
         items: [
             "<strong>Digital (β = +0.815, p < 0.001):</strong> Highly effective. Dominant driver of retail sales.",
@@ -803,7 +931,7 @@ const slidesData = [
     {
         title: "Slide 5: Digital Channel Deep-Dive",
         sub: "High volume driver reaching diminishing returns",
-        num: "Slide 5 of 12",
+        num: "Slide 5 of 13",
         img: "output/charts/16_digital_saturation.png",
         items: [
             "<strong>Spend Share:</strong> Digital accounts for 86.8% of total marketing budget ($2,633M).",
@@ -815,7 +943,7 @@ const slidesData = [
     {
         title: "Slide 6: Radio & TV Comparison",
         sub: "Radio is under-invested; TV lacks statistical evidence",
-        num: "Slide 6 of 12",
+        num: "Slide 6 of 13",
         img: "output/charts/08_channel_roi.png",
         items: [
             "<strong>Radio Marginal ROI:</strong> $7.07 per $1 spend — over 5x higher efficiency than Digital!",
@@ -827,7 +955,7 @@ const slidesData = [
     {
         title: "Slide 7: COVID-19 Impact Analysis",
         sub: "Lockdown did not collapse sales — marketing sustained demand",
-        num: "Slide 7 of 12",
+        num: "Slide 7 of 13",
         img: "output/charts/09_covid_impact_bridge.png",
         items: [
             "<strong>Lockdown Effect (Q2 2020):</strong> Coefficient +$2.1M, p = 0.990 — NOT statistically significant.",
@@ -839,20 +967,20 @@ const slidesData = [
     {
         title: "Slide 8: Macro-Economic Factors Evaluation",
         sub: "GDP, CPI, Unemployment, and Sentiment show no impact after media controls",
-        num: "Slide 8 of 12",
+        num: "Slide 8 of 13",
         img: "output/charts/02_quarterly_sales_gdp.png",
         items: [
             "<strong>GDP % Change:</strong> p = 0.584. Sales remained resilient despite Q2 2020 GDP drop (–29.9%).",
             "<strong>CPI Inflation (YoY):</strong> p = 0.669. Peak inflation of 9.1% in 2022 did not alter demand.",
             "<strong>CA Unemployment:</strong> p = 0.700. CA unemployment peak of 16.4% did not dent retail sales.",
             "<strong>Consumer Sentiment & E-Commerce %:</strong> Neither reached statistical significance.",
-            "<strong>Bay Area Insight:</strong> Retail demand is driven by brand awareness & media execution, not macro cycles."
+            "<strong>Bay Area Insight:</strong> Retail demand is driven by marketing execution and brand awareness, not macro cycles."
         ]
     },
     {
         title: "Slide 9: SciPy SLSQP Budget Optimization",
         sub: "Constrained reallocation yields +31.7% sales uplift",
-        num: "Slide 9 of 12",
+        num: "Slide 9 of 13",
         img: "output/charts/10_budget_allocation.png",
         items: [
             "<strong>Current Allocation:</strong> Digital 86.8% ($2,633M), Radio 13.2% ($399M), TV 0.02% ($0.6M).",
@@ -864,7 +992,7 @@ const slidesData = [
     {
         title: "Slide 10: Budget Sensitivity & Risk Analysis",
         sub: "Elasticity analysis under budget variation (+/- 30%)",
-        num: "Slide 10 of 12",
+        num: "Slide 10 of 13",
         img: "output/charts/11_sensitivity_tornado.png",
         items: [
             "<strong>Spend Elasticity:</strong> Increasing total budget by +10% to +30% yields diminishing incremental revenue.",
@@ -876,7 +1004,7 @@ const slidesData = [
     {
         title: "Slide 11: Actionable Leadership Roadmap",
         sub: "30 / 60 / 90-day implementation plan",
-        num: "Slide 11 of 12",
+        num: "Slide 11 of 13",
         img: "output/charts/14_channel_spend_timeline.png",
         items: [
             "<strong>Next 30 Days (Foundation):</strong> Standardize channel KPI definitions, establish automated data pipelines, and set up Digital A/B testing.",
@@ -887,13 +1015,28 @@ const slidesData = [
     {
         title: "Slide 12: Model Governance & Appendix",
         sub: "Technical validation and residual diagnostics",
-        num: "Slide 12 of 12",
+        num: "Slide 12 of 13",
         img: "output/charts/13_residual_diagnostics.png",
         items: [
             "<strong>Model Accuracy:</strong> R² = 0.8954 | Adjusted R² = 0.8336 | LOOCV R² = 0.6973.",
             "<strong>Residual Diagnostics:</strong> Durbin-Watson = 3.07 | Breusch-Pagan p = 0.314 (Homoscedastic).",
             "<strong>Data Governance:</strong> HC3 robust standard errors ensure conservative p-values.",
             "<strong>Disclaimer:</strong> ABC Retail is a hypothetical company name used for case study modeling."
+        ]
+    },
+    {
+        title: "Slide 13: Glossary of Technical Terms",
+        sub: "Plain-English definitions & real-world analogies",
+        num: "Slide 13 of 13",
+        img: "output/charts/06_adstock_decay.png",
+        items: [
+            "<strong>Adstock (Ad Memory Decay):</strong> Ad impact carries over into future weeks/months (The Coffee Analogy).",
+            "<strong>Log-Saturation (Diminishing Returns):</strong> Extra spend yields less sales lift as high-intent audiences saturate (The Pizza Slice Analogy).",
+            "<strong>Marginal ROI:</strong> Return on the NEXT $1 spent ($7.07 Radio vs $1.32 Digital).",
+            "<strong>Standardised Coefficient (β*):</strong> Scales drivers to compare 'apples to elephants'.",
+            "<strong>P-Value & Significance:</strong> Probability of random luck; p < 0.05 means real statistical impact.",
+            "<strong>LOOCV R-Squared:</strong> Out-of-sample prediction accuracy (69.7%) proving zero overfitting.",
+            "<strong>HC3 Robust Standard Errors:</strong> Small-sample protection (n=36) against heteroscedasticity."
         ]
     }
 ];
